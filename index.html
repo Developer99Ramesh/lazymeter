@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Desi Laziness Quiz - How Lazy Are You Really?</title>
+    <link rel="stylesheet" href="styles.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700;800&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div id="app" class="app-container">
+        <!-- Country Selection Screen -->
+        <div id="country-screen" class="screen active">
+            <div class="card">
+                <div class="header">
+                    <div class="emoji-animation">🌏</div>
+                    <h1>Hey Bro! Which Country Are You From?</h1>
+                    <p>Answer quick, then get ready for some <span class="highlight">desi-style fun!</span></p>
+                </div>
+                
+                <div class="preview-section">
+                    <p>In just <span class="highlight">2 minutes</span>, find out if you're:</p>
+                    <div class="result-preview">
+                        <div class="preview-card orange">
+                            <div class="preview-emoji">🔥</div>
+                            <div class="preview-text">The Full Dhoom Machale</div>
+                        </div>
+                        <div class="preview-card teal">
+                            <div class="preview-emoji">🥔</div>
+                            <div class="preview-text">A Chilled Aloo Bukhara</div>
+                        </div>
+                        <div class="preview-card sunny">
+                            <div class="preview-emoji">😎</div>
+                            <div class="preview-text">A Lazy Legend from Your Desi Zone!</div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="country-section">
+                    <h3>Select Your Country:</h3>
+                    <div id="country-grid" class="country-grid">
+                        <!-- Countries will be populated by JS -->
+                    </div>
+                </div>
+
+                <div class="certificate-info">
+                    <div class="info-emoji">🏆</div>
+                    <h3>Will You Win the Laziness Trophy?</h3>
+                    <p>Plus, get a <strong>Personalized Laziness Certificate</strong> with your photo — perfect for sharing and bragging with your friends! 📸</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- Welcome Screen -->
+        <div id="welcome-screen" class="screen">
+            <div class="card">
+                <div class="header">
+                    <div class="emoji-animation">😴</div>
+                    <h1>Ready for Some <span class="highlight">Desi-Style Fun?</span></h1>
+                    <div id="country-greeting" class="country-greeting">
+                        <!-- Country greeting will be populated by JS -->
+                    </div>
+                    <p>Find out your true laziness score in just <span class="highlight">2 minutes!</span></p>
+                </div>
+                
+                <div class="type-preview">
+                    <p>Answer some funny questions and see if you're an</p>
+                    <div class="type-badges">
+                        <span class="badge turquoise">🔥 Dhoom Machale</span>
+                        <span class="text-or">or a</span>
+                        <span class="badge coral">🥔 Aloo Bukhara!</span>
+                    </div>
+                </div>
+
+                <!-- Country Jokes Section -->
+                <div id="jokes-section" class="jokes-section">
+                    <!-- Jokes will be populated by JS -->
+                </div>
+
+                <div class="start-section">
+                    <p>Will you win the <span class="trophy">🏆</span> <strong>Laziness Trophy?</strong></p>
+                    <p>Come on, take the test and show off your <span class="highlight">#DesiLazy</span> skills!</p>
+                </div>
+                
+                <button id="start-quiz-btn" class="btn btn-primary">
+                    Let's Find Out! 🚀
+                </button>
+            </div>
+        </div>
+
+        <!-- Quiz Screen -->
+        <div id="quiz-screen" class="screen">
+            <div class="card quiz-card">
+                <div class="quiz-header">
+                    <div class="progress-bar">
+                        <div id="progress-fill" class="progress-fill"></div>
+                    </div>
+                    <div class="quiz-info">
+                        <span id="question-counter">1 / 7</span>
+                        <span id="timer" class="timer">2:00</span>
+                    </div>
+                </div>
+
+                <div id="question-section" class="question-section">
+                    <!-- Question content will be populated by JS -->
+                </div>
+
+                <div class="quiz-navigation">
+                    <button id="prev-btn" class="btn btn-secondary" disabled>← Previous</button>
+                    <button id="next-btn" class="btn btn-primary" disabled>Next →</button>
+                </div>
+            </div>
+        </div>
+
+        <!-- Loading Screen -->
+        <div id="loading-screen" class="screen">
+            <div class="card">
+                <div class="loading-animation">⏳</div>
+                <h2>Calculating your laziness...</h2>
+                <p>Hold tight while we analyze your answers! 🧮</p>
+            </div>
+        </div>
+
+        <!-- Results Screen -->
+        <div id="results-screen" class="screen">
+            <div class="card results-card">
+                <div class="results-header">
+                    <div id="result-emoji" class="result-emoji">🥔</div>
+                    <h1 id="result-title">Aloo Bukhara Legend</h1>
+                    <div class="score-display">
+                        <div id="result-score" class="score-number">85</div>
+                        <div class="score-label">Laziness Score</div>
+                    </div>
+                </div>
+
+                <div class="result-description">
+                    <h3>Your Lazy Personality:</h3>
+                    <p id="result-desc">
+                        <!-- Description will be populated by JS -->
+                    </p>
+                    <div id="celebration-joke" class="celebration-joke">
+                        <!-- Country-specific joke will be populated by JS -->
+                    </div>
+                </div>
+
+                <!-- Certificate Section -->
+                <div class="certificate-section">
+                    <h3>Your Personalized Certificate 📜</h3>
+                    <div class="certificate-container">
+                        <canvas id="certificate-canvas" width="800" height="600"></canvas>
+                    </div>
+                    <p>Screenshot this certificate or right-click to save! Add your name and share with friends! 🎉</p>
+                    <div class="certificate-buttons">
+                        <button id="regenerate-cert-btn" class="btn btn-primary">🔄 Regenerate Certificate</button>
+                        <button id="play-applause-btn" class="btn btn-secondary">👏 Play Applause</button>
+                    </div>
+                </div>
+
+                <!-- Social Share Section -->
+                <div class="social-section">
+                    <h3>Share Your Results! 📢</h3>
+                    <div class="share-buttons">
+                        <button class="share-btn facebook" onclick="shareToFacebook()">📘 Facebook</button>
+                        <button class="share-btn twitter" onclick="shareToTwitter()">🐦 Twitter</button>
+                        <button class="share-btn whatsapp" onclick="shareToWhatsApp()">💬 WhatsApp</button>
+                        <button class="share-btn copy" onclick="copyLink()">🔗 Copy Link</button>
+                    </div>
+                    <p>Use hashtag: <span class="highlight">#DesiLazy</span></p>
+                </div>
+
+                <div class="action-buttons">
+                    <button id="retake-btn" class="btn btn-primary">🔄 Take Quiz Again</button>
+                    <button class="btn btn-secondary" onclick="shareResults()">📤 Share Challenge</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="quiz-data.js"></script>
+    <script src="app.js"></script>
+</body>
+</html>
